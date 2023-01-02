@@ -1,0 +1,25 @@
+body{
+    margin: 0px;
+}
+.fundo{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.fundoJogo{
+    width: 500px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50px;
+    background-color: rgb(86, 212, 86);
+}
+
+
