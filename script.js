@@ -1,6 +1,8 @@
 let numSorteado = Math.floor(Math.random()*100) + 1;
+let numTentativas = 10;
+
 console.log('Numero sorteado: ' + numSorteado);
-document.querySelector('#aviso').style.visibility = 'hidden';
+
 let campoNumero = document.querySelector('#numDigitado');
 campoNumero.addEventListener('keydown',responderEnter);
 
@@ -10,13 +12,24 @@ function responderEnter(event){
         document.querySelector('#aviso').style.visibility = 'visible';
         if(numDigitado == numSorteado){
             document.querySelector('#aviso').textContent = 'ACERTOUU!!!';
-            
-        }
-        else if(numDigitado > numSorteado){
-            document.querySelector('#aviso').textContent = 'NUMERO SORTEADO MENOR!!!';
+            document.querySelector('#numeroTentativas').style.visibility = 'hidden';
         }
         else{
-            document.querySelector('#aviso').textContent = 'NUMERO SORTEADO MAIOR!!!';
-        }
+            numTentativas--;
+            if(numTentativas == 0){
+                document.querySelector('#aviso').textContent = 'VOCÊ PERDEU O JOGO :(';
+                document.querySelector('#numeroTentativas').style.visibility = 'hidden';
+                
+            }
+            else if(numDigitado > numSorteado){
+                document.querySelector('#aviso').textContent = 'NUMERO SORTEADO MENOR!!!';
+                document.querySelector('#numeroTentativas').textContent = 'Você tem ' + numTentativas + ' tentativas';
+                   
+            }
+            else{
+                document.querySelector('#aviso').textContent = 'NUMERO SORTEADO MAIOR!!!';
+                document.querySelector('#numeroTentativas').textContent = 'Você tem ' + numTentativas + ' tentativas';
+            }
+        }    
     }
 }
