@@ -9,6 +9,17 @@ campoNumero.addEventListener('keydown',responderEnter);
 let botao = document.querySelector('#botaoAdivinhar');
 botao.addEventListener('click',adivinharNumero);
 
+function reiniciar(){
+    numSorteado = Math.floor(Math.random()*100) + 1;
+    numTentativas = 10;
+    document.querySelector('#aviso').style.visibility = 'hidden';
+    document.querySelector('#numeroTentativas').style.visibility = 'visible';
+    document.querySelector('#numeroTentativas').textContent = 'Você tem ' + numTentativas + ' tentativas';
+    botao.removeEventListener('click',reiniciar);
+    botao.textContent = 'ADIVINHAR';
+
+}
+
 function responderEnter(event){
     if(event.key == 'Enter'){
         botao.click();
@@ -22,12 +33,17 @@ function adivinharNumero(event){
     if(numDigitado == numSorteado){
         document.querySelector('#aviso').textContent = 'ACERTOUU!!!';
         document.querySelector('#numeroTentativas').style.visibility = 'hidden';
+        botao.textContent = 'TENTAR DE NOVO';
+        botao.addEventListener('click', reiniciar);
+
     }
     else{
         numTentativas--;
         if(numTentativas == 0){
             document.querySelector('#aviso').textContent = 'VOCÊ PERDEU O JOGO :(';
             document.querySelector('#numeroTentativas').style.visibility = 'hidden';
+            botao.textContent = 'TENTAR DE NOVO';
+            botao.addEventListener('click', reiniciar);
             
         }
         else if(numDigitado > numSorteado){
