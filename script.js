@@ -1,6 +1,5 @@
 let numSorteado = Math.floor(Math.random()*100) + 1;
 let numTentativas = 10;
-let tentativas = [];
 
 console.log('Numero sorteado: ' + numSorteado);
 
@@ -40,8 +39,6 @@ function adivinharNumero(event){
     }
     else{
         numTentativas--;
-        let quantTentativas = tentativas.push(numDigitado);
-        console.log(tentativas);
         if(numTentativas == 0){
             document.querySelector('#aviso').textContent = 'VOCÊ PERDEU O JOGO :(';
             document.querySelector('#numeroTentativas').style.visibility = 'hidden';
@@ -52,18 +49,11 @@ function adivinharNumero(event){
         else if(numDigitado > numSorteado){
             document.querySelector('#aviso').textContent = 'NUMERO SORTEADO MENOR!!!';
             document.querySelector('#numeroTentativas').textContent = 'Você tem ' + numTentativas + ' tentativas';
-            document.querySelector('#tentativas').textContent += tentativas[quantTentativas-1];    
-            document.querySelector('#tentativas').textContent += '  ';    
-
-        }   
-
-
+                
+        }
         else{
             document.querySelector('#aviso').textContent = 'NUMERO SORTEADO MAIOR!!!';
             document.querySelector('#numeroTentativas').textContent = 'Você tem ' + numTentativas + ' tentativas';
-            document.querySelector('#tentativas').textContent += tentativas[quantTentativas-1];    
-            document.querySelector('#tentativas').textContent += '  ';    
-
         }
     }    
 
