@@ -29,8 +29,12 @@ function responderEnter(event){
 
 function adivinharNumero(event){
     let numDigitado = document.querySelector('#numDigitado').value;
+    let quantTentativas = tentativas.push(numDigitado);
     campoNumero.value = '';
     document.querySelector('#aviso').style.visibility = 'visible';
+    document.querySelector('#tentativas').textContent += tentativas[quantTentativas-1];    
+        
+
     if(numDigitado == numSorteado){
         document.querySelector('#aviso').textContent = 'ACERTOUU!!!';
         document.querySelector('#numeroTentativas').style.visibility = 'hidden';
@@ -40,7 +44,6 @@ function adivinharNumero(event){
     }
     else{
         numTentativas--;
-        let quantTentativas = tentativas.push(numDigitado);
         console.log(tentativas);
         if(numTentativas == 0){
             document.querySelector('#aviso').textContent = 'VOCÊ PERDEU O JOGO :(';
@@ -51,18 +54,15 @@ function adivinharNumero(event){
         }
         else if(numDigitado > numSorteado){
             document.querySelector('#aviso').textContent = 'NUMERO SORTEADO MENOR!!!';
+            document.querySelector('#tentativas').textContent += '-';
             document.querySelector('#numeroTentativas').textContent = 'Você tem ' + numTentativas + ' tentativas';
-            document.querySelector('#tentativas').textContent += tentativas[quantTentativas-1];    
-            document.querySelector('#tentativas').textContent += '  ';    
-
+  
         }   
-
 
         else{
             document.querySelector('#aviso').textContent = 'NUMERO SORTEADO MAIOR!!!';
+            document.querySelector('#tentativas').textContent += '-';
             document.querySelector('#numeroTentativas').textContent = 'Você tem ' + numTentativas + ' tentativas';
-            document.querySelector('#tentativas').textContent += tentativas[quantTentativas-1];    
-            document.querySelector('#tentativas').textContent += '  ';    
 
         }
     }    
