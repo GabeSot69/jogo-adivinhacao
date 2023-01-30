@@ -54,14 +54,12 @@ function adivinharNumero(event){
         }
         else if(numDigitado > numSorteado){
             document.querySelector('#aviso').textContent = 'NUMERO SORTEADO MENOR!!!';
-            document.querySelector('#tentativas').textContent += '-';
             document.querySelector('#numeroTentativas').textContent = 'Você tem ' + numTentativas + ' tentativas';
   
         }   
 
         else{
             document.querySelector('#aviso').textContent = 'NUMERO SORTEADO MAIOR!!!';
-            document.querySelector('#tentativas').textContent += '-';
             document.querySelector('#numeroTentativas').textContent = 'Você tem ' + numTentativas + ' tentativas';
 
         }
