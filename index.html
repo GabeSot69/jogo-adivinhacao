@@ -10,19 +10,22 @@
     </head>
     <body>
         <div class="fundo">
-            <section class="fundoJogo">
-                <div class="fundoTitulo">
-                    ADIVINHE UM NÚMERO
+            <section class="fundo-jogo">
+                
+                <div class="fundo-titulo">
+                    <img src="./icons/icon-question.png" alt="question-mark" name = "question-mark-1">ADIVINHE UM NÚMERO <img src="./icons/icon-question.png" alt="question-mark" name = "question-mark-2">
                 </div>
             
-                <div class="fundoTexto">
-                        Você pode adivinhar um número de 1 a 100
-                        <br>
-                        <span>Digite no campo: <input type="text" name="campoNumero" placeholder="Digite aqui" id="numDigitado"></span>
-                        <button type="button" id="botaoAdivinhar">ADIVINHAR</button>
+                <div class="fundo-texto">
+                        <span>Eu estou pensando em um número de 1 a 100...</span>
+                        <span>Você consegue adivinhar?</span>
+
+            
+                        <input type="text" name="campo-resposta" id="campo-resposta">
+                        <button type="button" id="botao-adivinhar">ADIVINHAR</button>
                         
                         <span id="aviso">ACERTOUU!!!</span>
-                        <span id="numeroTentativas">Você tem 10 tentativas</span>
+                        <span id="numero-tentativas">Você tem 10 tentativas</span>
                         <span id="tentativas">Tentativas: </span>
                 </div>
             </section>
